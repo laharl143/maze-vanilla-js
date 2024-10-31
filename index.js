@@ -202,16 +202,36 @@ World.add(world, ball);
 document.addEventListener("keydown", (event) => {
   const { x, y } = ball.velocity;
   //website: keycode.info
+  //keydown: W
   if (event.keyCode === 87) {
     Body.setVelocity(ball, { x, y: y - 5 });
   }
+  //keydown: D
   if (event.keyCode === 68) {
     Body.setVelocity(ball, { x: x + 5, y });
   }
+  //keydown: S
   if (event.keyCode === 83) {
     Body.setVelocity(ball, { x, y: y + 5 });
   }
+  //keydown: A
   if (event.keyCode === 65) {
+    Body.setVelocity(ball, { x: x - 5, y });
+  }
+  //keydown: Up arrow Key
+  if (event.keyCode === 38) {
+    Body.setVelocity(ball, { x, y: y - 5 });
+  }
+  //keydown: D
+  if (event.keyCode === 39) {
+    Body.setVelocity(ball, { x: x + 5, y });
+  }
+  //keydown: S
+  if (event.keyCode === 40) {
+    Body.setVelocity(ball, { x, y: y + 5 });
+  }
+  //keydown: A
+  if (event.keyCode === 37) {
     Body.setVelocity(ball, { x: x - 5, y });
   }
 });
@@ -227,6 +247,7 @@ Events.on(engine, "collisionStart", (event) => {
       labels.includes(collision.bodyB.label)
     ) {
       document.querySelector(".winner").classList.remove("hidden");
+      document.querySelector(".instruction").classList.add("hidden");
       world.gravity.y = 1;
       world.bodies.forEach((body) => {
         if (body.label === "wall") {
