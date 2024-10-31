@@ -2,8 +2,8 @@
 const { Engine, Render, Runner, World, Bodies, Body, Events } = Matter;
 
 //cells
-const cellsHorizontal = 3;
-const cellsVertical = 3;
+const cellsHorizontal = 14;
+const cellsVertical = 10;
 // Set canvas size based on window dimensions
 const width = window.innerWidth;
 const height = window.innerHeight;
